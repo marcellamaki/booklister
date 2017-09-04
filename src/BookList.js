@@ -7,17 +7,18 @@ const BookList = (props) => {
 
   return (
   <div className="ui grid container">
-    {props.foundBooks.map((book, index) => {
+    {props.searchedBooks.map((book, index) => {
       return(
-        <Book handleClick={props.handleClick}
+        <Book
+          clickToFlip={props.clickToFlip}
           book={book.volumeInfo}
           key={index}/>
         )
       }
-    )
-  }
+    )}
   </div>
   )
+
 }
 
 

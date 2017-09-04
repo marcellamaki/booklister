@@ -9,6 +9,13 @@ class App extends Component {
     title: '',
     author: '',
     keyword: ''
+
+  }
+
+  constructor() {
+    super();
+
+    this.clickToFlip = this.clickToFlip.bind(this)
   }
 
   //arr.splice(0, 20)
@@ -55,8 +62,9 @@ class App extends Component {
   }
 
   setSearchedBooks = (foundBooks) => {
-    console.log(foundBooks)
+    foundBooks.map(book => book.volumeInfo.showDescription = false)
     this.setState({ searchedBooks: foundBooks })
+    // console.log(this.state.searchedBooks)
   }
 
   handleSearch = (e) => {
@@ -69,6 +77,23 @@ class App extends Component {
 
   resetState = () => this.setState({ keyword:'', title:'', author:''})
 
+  clickToFlip = (event) => {
+    let bookDisplays = this.state.searchedBooks.slice(0)
+    bookDisplays.map((book) => {
+    // console.log(book.volumeInfo.title)
+    // let's ask about why it works on the p tag and not the div tag
+      if (book.volumeInfo.title === event.target.className && book.volumeInfo.showDescription === false){
+        book.volumeInfo.showDescription = true
+      }else if (book.volumeInfo.title === event.target.className && book.volumeInfo.showDescription === true){
+        book.volumeInfo.showDescription = false
+     }
+
+    })
+    // console.log(bookDisplays)
+    // console.log(this.state.searchedBooks)
+      this.setState({searchedBooks: bookDisplays})
+      // debugger
+  }
 
   render(){
     // console.log(this.state.searchedBooks)
@@ -80,6 +105,8 @@ class App extends Component {
           changeAuthor={this.changeAuthor}
           changeTitle={this.changeTitle}
           foundBooks={this.state.searchedBooks}
+          clickToFlip={this.clickToFlip}
+          showDescription={this.state.showDescription}
         />
       </div>
     );

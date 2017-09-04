@@ -7,27 +7,32 @@ const Book = (props) => {
   // }
 
   let display = ""
-  //
-  // if (props.showDescription) {
+  console.log(props)
+  if (props.book.showDescription) {
+    // let's ask about why it works on the p tag and not the div tag
  display =
-        <div onClick={props.clickFunction}>
+        <div onClick={props.clickToFlip} className={props.book.title}>
           <h3>{props.book.title}</h3>
           <p>{props.book.authors}</p>
-          <p>{props.book.description}</p>
+          <p className={props.book.title} >{props.book.description}</p>
           <p>Rating: {props.book.averageRating}</p>
           <p>Category: {props.book.categories}</p>
         </div>
-    // } else {
-    //   display = (<div><img  title={props.tile} alt="" onClick={props.handleFlip}/></div>)
-    // }
+    } else {
+      if (!!props.book.imageLinks){
+      display =
+      <div onClick={props.clickToFlip}>
+        <img src={props.book.imageLinks.thumbnail}
+          className={props.book.title} />
+      </div>
+    }
+  }
 
   return (
     <div className="ui four wide column">
       {display}
     </div>
   )
-
-
 
 }
 

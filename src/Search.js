@@ -9,6 +9,8 @@ const Search = (props) => {
 
     return(
       <div>
+        <h2>Book Lister</h2>
+        <h4>Find a book by entering you search in the fields below. You can search by more than one category at once! The more search parameters entered, the more likely you are to find accurate results.</h4>
         <form onSubmit={props.handleSearch}>
           <label>Keyword:
             <input type="text" value={props.subject} onChange={props.changeKeyword}/></label><br></br>
@@ -19,7 +21,10 @@ const Search = (props) => {
           <input type="submit" value="Search"/>
         </form>
         <br></br>
-        <BookList foundBooks={props.foundBooks}/>
+        <BookList
+          searchedBooks={props.foundBooks}
+          clickToFlip={props.clickToFlip}
+        />
       </div>
     )
 }
