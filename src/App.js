@@ -82,9 +82,9 @@ class App extends Component {
     bookDisplays.map((book) => {
     // console.log(book.volumeInfo.title)
     // let's ask about why it works on the p tag and not the div tag
-      if (book.volumeInfo.title === event.target.className && book.volumeInfo.showDescription === false){
+      if (book.volumeInfo.title === event.target.id && book.volumeInfo.showDescription === false){
         book.volumeInfo.showDescription = true
-      }else if (book.volumeInfo.title === event.target.className && book.volumeInfo.showDescription === true){
+      }else if (book.volumeInfo.title === event.target.id && book.volumeInfo.showDescription === true){
         book.volumeInfo.showDescription = false
      }
 

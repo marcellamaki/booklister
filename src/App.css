@@ -1,24 +1,91 @@
 .App {
+  margin: 0% 5% 0% 5%;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.navWrapper {
+  margin-bottom: 2%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.filterWrapper {
+  margin: 2% 0% 2% 0%;
 }
 
-.App-intro {
-  font-size: large;
+.headerText {
+  color: #F5A9BC;
+  font-size: 3em;
+  margin: 0% 2% 0% 2%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ul {
+  list-style-type: none;
+  list-style: none;
+}
+
+.normalText ul {
+  font-family: Georgia, serif;
+  font-size: .75em;
+  text-align: left;
+}
+
+.normalText {
+  font-family: Georgia, serif;
+  font-size: .75em;
+}
+
+.indexWrapper {
+  margin: auto;
+}
+
+.book {
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 5%;
+  outline: #3B0B0B solid;
+  transition: 0.75s;
+  opacity: 1;
+}
+
+.minBackgroundSneak {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-size: cover;
+  z-index: -3;
+}
+
+.maxBackgroundSneak {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-size: cover;
+  z-index: -3;
+  opacity: 0.75;
+}
+
+.book h3 {
+  color: #00008B;
+}
+
+.book p {
+  font-size: 12px
+}
+
+.minBook {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+}
+
+.maxBook {
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+.book:hover {
+  transform: scale(1.05);
 }
